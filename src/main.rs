@@ -5,7 +5,7 @@ use mcp9808::MCP9808;
 use mcp9808::reg_res::ResolutionVal;
 
 fn main() {
-    let i2c_bus = I2cdev::new("/dev/i2c-1").unwrap();
+    let i2c_bus = I2cdev::new("/dev/i2c-0").unwrap();
     let mut mcp9808 = MCP9808::new(i2c_bus);
 
     let mut conf = mcp9808.read_configuration().unwrap();
