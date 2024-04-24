@@ -1,0 +1,9 @@
+[package]
+name = "prometheus-mcp9808"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+linux-embedded-hal = "0.4"
+mcp9808 = "0.3"
+
