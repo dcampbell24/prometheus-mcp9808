@@ -5,5 +5,7 @@ edition = "2021"
 
 [dependencies]
 linux-embedded-hal = "0.4"
+metrics = "*"
+metrics_exporter_prometheus = "*"
 mcp9808 = "0.3"
 
