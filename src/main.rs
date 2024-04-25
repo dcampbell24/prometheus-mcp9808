@@ -24,9 +24,15 @@ fn main() {
         .install()
         .expect("failed to install recorder/exporter");
 
+    let temperature_c = gauge!("temperature_celsius_indoors");
+    let temperature_f = gauge!("temperature_fahrenheit_indoors");
+
     loop {
-        let temp = mcp9808.read_temperature().unwrap();
-        println!("{}", temp.get_celsius(ResolutionVal::Deg_0_0625C));
+        let temperature = mcp9808.read_temperature().unwrap();
+        let temperature = temperature.get_celsius(ResolutionVal::Deg_0_0625C);
+        temperature_c.set(temperature);
+        temperature_f.set((temperature * 1.8) + 32.0);
+        println!("{temperature}");
         sleep(Duration::from_secs(1));
     }
 }
